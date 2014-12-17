@@ -1,0 +1,955 @@
+{
+  "id": null,
+  "title": "API",
+  "originalTitle": "API",
+  "tags": [],
+  "style": "dark",
+  "timezone": "browser",
+  "editable": true,
+  "hideControls": false,
+  "sharedCrosshair": true,
+  "rows": [
+    {
+      "title": "API Requests",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "panels": [
+        {
+          "id": 4,
+          "span": 12,
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "scale": 1,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "max": null,
+            "min": null,
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "resolution": 100,
+          "lines": true,
+          "fill": 1,
+          "linewidth": 2,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "spyable": true,
+          "options": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "interactive": true,
+          "legend_counts": true,
+          "timezone": "browser",
+          "percentage": false,
+          "nullPointMode": "null as zero",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "query_as_alias": true,
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "alias(sumSeries(cloud.openstack.$env.counters.logstash.$servers.nova.api.$method.*.count.*), 'Nova')"
+            },
+            {
+              "target": "alias(sumSeries(cloud.openstack.$env.counters.logstash.$servers.glance.api.total.count.*), 'Glance')"
+            },
+            {
+              "target": "alias(sumSeries(cloud.openstack.$env.counters.logstash.$servers.keystone.api.total.count.*), 'Keystone')"
+            },
+            {
+              "target": "alias(sumSeries(cloud.openstack.$env.counters.logstash.$servers.neutron.api.$method.*.count.*), 'Neutron')"
+            }
+          ],
+          "aliasColors": {},
+          "aliasYAxis": {},
+          "title": "$env API Request",
+          "datasource": "graphite",
+          "renderer": "flot",
+          "annotate": {
+            "enable": false
+          },
+          "seriesOverrides": [],
+          "links": []
+        }
+      ]
+    },
+    {
+      "title": "Nova Max Response times",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "panels": [
+        {
+          "title": "Nova API MAX Response Time",
+          "error": false,
+          "span": 12,
+          "editable": true,
+          "type": "graph",
+          "id": 6,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 1,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null as zero",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasByNode(cloud.openstack.$env.timers.logstash.$servers.nova.api.$method.$status.upper.*, 5, 8, 9)"
+            }
+          ],
+          "seriesOverrides": [],
+          "links": [
+            {
+              "type": "dashboard",
+              "name": "Drilldown dashboard",
+              "title": "Detailed",
+              "dashboard": "novadetailed",
+              "params": "DEV"
+            }
+          ]
+        }
+      ],
+      "showTitle": true
+    },
+    {
+      "title": "Nova Mean Response times",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "panels": [
+        {
+          "title": "Nova MEAN API Response Time",
+          "error": false,
+          "span": 12,
+          "editable": true,
+          "type": "graph",
+          "id": 26,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 1,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null as zero",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasByNode(cloud.openstack.$env.timers.logstash.$servers.nova.api.$method.$status.mean.*, 5, 8, 9, 10)"
+            }
+          ],
+          "seriesOverrides": [],
+          "links": [
+            {
+              "type": "dashboard",
+              "name": "Drilldown dashboard",
+              "title": "Detailed",
+              "dashboard": "novadetailed",
+              "params": "DEV"
+            }
+          ]
+        }
+      ],
+      "showTitle": true
+    },
+    {
+      "title": "Neutron Max Response time",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "panels": [
+        {
+          "title": "Neutron MAX API Response Time",
+          "error": false,
+          "span": 12,
+          "editable": true,
+          "type": "graph",
+          "id": 23,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 1,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null as zero",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasByNode(cloud.openstack.$env.timers.logstash.$servers.neutron.api.$method.$status.upper.*, 5, 8, 9)"
+            }
+          ],
+          "seriesOverrides": [],
+          "links": [
+            {
+              "type": "dashboard",
+              "name": "Drilldown dashboard",
+              "title": "Detailed",
+              "dashboard": "glancedetailed",
+              "params": "env=$env"
+            }
+          ]
+        }
+      ],
+      "showTitle": true
+    },
+    {
+      "title": "Neutron Mean Response times",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "panels": [
+        {
+          "title": "Neutron MEAN API Response Time",
+          "error": false,
+          "span": 12,
+          "editable": true,
+          "type": "graph",
+          "id": 27,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 1,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null as zero",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasByNode(cloud.openstack.$env.timers.logstash.$servers.neutron.api.$method.$status.mean.*, 5, 8, 9)"
+            }
+          ],
+          "seriesOverrides": [],
+          "links": [
+            {
+              "type": "dashboard",
+              "name": "Drilldown dashboard",
+              "title": "Detailed",
+              "dashboard": "glancedetailed",
+              "params": "env=$env"
+            }
+          ]
+        }
+      ],
+      "showTitle": true
+    },
+    {
+      "title": "Keystone Max Response times",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "panels": [
+        {
+          "title": "Keystone Max API Response Time",
+          "error": false,
+          "span": 12,
+          "editable": true,
+          "type": "graph",
+          "id": 21,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 1,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null as zero",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasByNode(cloud.openstack.$env.timers.logstash.$servers.keystone.api.$method.$status.upper.*, 5, 8, 9)"
+            }
+          ],
+          "seriesOverrides": [],
+          "links": [
+            {
+              "type": "dashboard",
+              "name": "Drilldown dashboard",
+              "title": "Detailed",
+              "dashboard": "keystonedetailed",
+              "params": "env=$env"
+            }
+          ]
+        }
+      ],
+      "showTitle": true
+    },
+    {
+      "title": "Keystone Mean Response times",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "panels": [
+        {
+          "title": "Keystone Mean API Response Time",
+          "error": false,
+          "span": 12,
+          "editable": true,
+          "type": "graph",
+          "id": 28,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 1,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null as zero",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasByNode(cloud.openstack.$env.timers.logstash.$servers.keystone.api.$method.$status.mean.*, 5, 8, 9)"
+            }
+          ],
+          "seriesOverrides": [],
+          "links": [
+            {
+              "type": "dashboard",
+              "name": "Drilldown dashboard",
+              "title": "Detailed",
+              "dashboard": "keystonedetailed",
+              "params": "env=$env"
+            }
+          ]
+        }
+      ],
+      "showTitle": true
+    },
+    {
+      "title": "Glance MAX API RESPONSE TIMES",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "panels": [
+        {
+          "title": "Glance API Response Time",
+          "error": false,
+          "span": 12,
+          "editable": true,
+          "type": "graph",
+          "id": 22,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 1,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null as zero",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasByNode(cloud.openstack.$env.timers.logstash.$servers.glance.api.$method.$status.upper.undef, 5, 8, 9, 10)"
+            },
+            {
+              "target": "aliasByNode(cloud.openstack.$env.timers.logstash.$servers.glance.api.$method.$status.mean.undef, 5, 8, 9, 10)"
+            }
+          ],
+          "seriesOverrides": [],
+          "links": [
+            {
+              "type": "dashboard",
+              "name": "Drilldown dashboard",
+              "title": "Detailed",
+              "dashboard": "glancedetailed",
+              "params": "env=$env"
+            }
+          ]
+        }
+      ],
+      "showTitle": true
+    },
+    {
+      "title": "Metadata Response times",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "panels": [
+        {
+          "title": "Metadata API Response Time",
+          "error": false,
+          "span": 6,
+          "editable": true,
+          "type": "graph",
+          "id": 24,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 1,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null as zero",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasByNode(cloud.openstack.$env.timers.logstash.$servers.metadata.api.$method.$status.upper.*, 5, 10)"
+            },
+            {
+              "target": "aliasByNode(cloud.openstack.$env.timers.logstash.$servers.metadata.api.$method.$status.mean.*, 5, 10)"
+            }
+          ],
+          "seriesOverrides": [],
+          "links": [
+            {
+              "type": "dashboard",
+              "name": "Drilldown dashboard",
+              "title": "Detailed",
+              "dashboard": "metadatadetailed",
+              "params": "env=$env"
+            }
+          ]
+        },
+        {
+          "title": "Metadata-EC2 API Response Time",
+          "error": false,
+          "span": 6,
+          "editable": true,
+          "type": "graph",
+          "id": 25,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 1,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": false,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": false
+          },
+          "nullPointMode": "null as zero",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true
+          },
+          "targets": [
+            {
+              "target": "aliasByNode(cloud.openstack.$env.timers.logstash.$servers.metadata-ec2.api.$method.$status.upper.*, 5, 10)"
+            },
+            {
+              "target": "aliasByNode(cloud.openstack.$env.timers.logstash.$servers.metadata-ec2.api.$method.$status.mean.*, 5, 10)"
+            }
+          ],
+          "seriesOverrides": [],
+          "links": [
+            {
+              "type": "dashboard",
+              "name": "Drilldown dashboard",
+              "title": "Detailed",
+              "dashboard": "metadataec2detailed",
+              "params": "env=$env"
+            }
+          ]
+        }
+      ],
+      "showTitle": true
+    },
+  ],
+  "nav": [
+    {
+      "type": "timepicker",
+      "collapse": false,
+      "enable": true,
+      "status": "Stable",
+      "time_options": [
+        "5m",
+        "15m",
+        "1h",
+        "6h",
+        "12h",
+        "24h",
+        "2d",
+        "7d",
+        "30d"
+      ],
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ],
+      "now": true,
+      "notice": false
+    }
+  ],
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "templating": {
+    "list": [
+      {
+        "type": "query",
+        "datasource": null,
+        "refresh_on_load": false,
+        "name": "env",
+        "options": [
+          {
+            "text": "All",
+            "value": "{}"
+          }
+        ],
+        "includeAll": true,
+        "allFormat": "glob",
+        "query": "cloud.openstack.*",
+        "current": {
+          "text": "All",
+          "value": "{}"
+        }
+      },
+      {
+        "type": "query",
+        "datasource": null,
+        "refresh_on_load": false,
+        "name": "servers",
+        "options": [
+          {
+            "text": "All",
+            "value": "{}"
+          },
+        ],
+        "includeAll": true,
+        "allFormat": "glob",
+        "query": "cloud.openstack.$env.counters.logstash.*",
+        "current": {
+          "text": "All",
+          "value": "{}"
+        }
+      },
+      {
+        "type": "query",
+        "datasource": null,
+        "refresh_on_load": false,
+        "name": "method",
+        "options": [
+          {
+            "text": "All",
+            "value": "{DELETE,GET,HEAD,POST,PUT}"
+          },
+          {
+            "text": "DELETE",
+            "value": "DELETE"
+          },
+          {
+            "text": "GET",
+            "value": "GET"
+          },
+          {
+            "text": "HEAD",
+            "value": "HEAD"
+          },
+          {
+            "text": "POST",
+            "value": "POST"
+          },
+          {
+            "text": "PUT",
+            "value": "PUT"
+          }
+        ],
+        "includeAll": true,
+        "allFormat": "glob",
+        "query": "cloud.openstack.$env.counters.logstash.$servers.*.api.*",
+        "current": {
+          "text": "All",
+          "value": "{DELETE,GET,HEAD,POST,PUT}"
+        },
+        "regex": "\\D[^total]"
+      },
+      {
+        "type": "query",
+        "datasource": null,
+        "refresh_on_load": false,
+        "name": "status",
+        "options": [
+          {
+            "text": "All",
+            "value": "{200,201,202,204,300,400,401,403,404,409,413,500,501}"
+          },
+          {
+            "text": "200",
+            "value": "200"
+          },
+          {
+            "text": "201",
+            "value": "201"
+          },
+          {
+            "text": "202",
+            "value": "202"
+          },
+          {
+            "text": "204",
+            "value": "204"
+          },
+          {
+            "text": "300",
+            "value": "300"
+          },
+          {
+            "text": "400",
+            "value": "400"
+          },
+          {
+            "text": "401",
+            "value": "401"
+          },
+          {
+            "text": "403",
+            "value": "403"
+          },
+          {
+            "text": "404",
+            "value": "404"
+          },
+          {
+            "text": "409",
+            "value": "409"
+          },
+          {
+            "text": "413",
+            "value": "413"
+          },
+          {
+            "text": "500",
+            "value": "500"
+          },
+          {
+            "text": "501",
+            "value": "501"
+          }
+        ],
+        "includeAll": true,
+        "allFormat": "glob",
+        "query": "cloud.openstack.$env.timers.logstash.$servers.*.api.$method.*",
+        "current": {
+          "text": "All",
+          "value": "{200,201,202,204,300,400,401,403,404,409,413,500,501}"
+        },
+        "regex": "\\d"
+      }
+    ],
+    "enable": true
+  },
+  "annotations": {
+    "list": [],
+    "enable": false
+  },
+  "refresh": "1m",
+  "version": 6,
+  "hideAllLegends": false
+}
